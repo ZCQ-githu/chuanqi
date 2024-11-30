@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI对话与照片展示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 背景装饰 -->
+    <div class="background-decoration"></div>
+
+    <!-- 左侧装饰 -->
+    <div class="left-decoration">
+        <div class="decoration-icon">🌟</div>
+        <div class="decoration-icon">🎮</div>
+        <div class="decoration-icon">🎵</div>
+        <div class="decoration-icon">📷</div>
+    </div>
+
+    <!-- 右侧装饰 -->
+    <div class="right-decoration">
+        <div class="decoration-icon">💫</div>
+        <div class="decoration-icon">🎨</div>
+        <div class="decoration-icon">🎬</div>
+        <div class="decoration-icon">📱</div>
+    </div>
+
+    <!-- 标题部分 -->
+    <header class="page-header">
+        <h1 class="site-title">ᥫ᭡້Zhao Legendᥫ᭡້</h1>
+    </header>
+
+    <!-- 照片轮播部分 -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slides">
+                <img src="imgs/海边日落 天空 云 鲜花 海浪 唯美风景桌面壁纸_彼岸壁纸.jpg" alt="海边日落" class="slide active">
+                <img src="imgs/悟空 天空 云 动漫壁纸_彼岸壁纸.jpg" alt="悟空" class="slide">
+                <img src="imgs/在山的那边风景电脑壁纸_彼岸壁纸.jpg" alt="山景" class="slide">
+            </div>
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+            <div class="carousel-dots"></div>
+            <button class="carousel-play-pause">暂停</button>
+        </div>
+    </div>
+
+    <!-- 对话界面部分 -->
+    <div class="chat-container">
+        <div class="chat-messages">
+            <div class="message ai-message">
+                <div class="message-content">你好！我是AI助手，有什么我可以帮忙的吗？</div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <textarea placeholder="请输入您的消息..." rows="3"></textarea>
+            <button class="send-btn" disabled>发送</button>
+        </div>
+    </div>
+
+    <!-- 页脚部分 -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 AI对话系统. 保留所有权利.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">微博</a>
+                <a href="#" class="social-link">微信</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 在 </body> 标签前添加这一行 -->
+    <script src="script.js"></script>
+</body>
+</html> 

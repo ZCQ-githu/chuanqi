@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 轮播图样式 */
+.carousel-container {
+    width: 50%;
+    height: 56.25vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0;
+    margin-bottom: 30px;
+    background: #000;
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #000;
+    border-radius: 27px;
+    overflow: hidden;
+}
+
+.carousel-slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 0, 222, 0.3);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 15px;
+    transition: background 0.3s ease;
+    backdrop-filter: blur(5px);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 0, 222, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* 对话界面样式 */
+.chat-container {
+    width: 50%;
+    height: 45vh;
+    background: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 0, 222, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(255, 0, 222, 0.2);
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.message {
+    margin: 10px 0;
+    max-width: 70%;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.user-message {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.ai-message {
+    margin-right: auto;
+    justify-content: flex-start;
+}
+
+.message-content {
+    padding: 10px 15px;
+    border-radius: 18px;
+    background: #ff00de;
+    color: white;
+    max-width: 100%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    line-height: 1.5;
+    position: relative;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease;
+}
+
+.message-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ai-message .message-content {
+    background: #f0f2f5;
+    color: #333;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid #ff00de;
+}
+
+.user-message .message-content {
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 4px rgba(255, 0, 222, 0.2);
+    border-right: 3px solid #ff00de;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(248, 249, 250, 0.9);
+    border-radius: 0 0 20px 20px;
+    border-top: 2px solid rgba(255, 0, 222, 0.1);
+    position: relative;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid rgba(255, 0, 222, 0.1);
+    border-radius: 5px;
+    resize: none;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #ff00de;
+}
+
+.send-btn {
+    padding: 10px 20px;
+    background: #ff00de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+    background: #d600ba;
+}
+
+.send-btn:disabled {
+    background: rgba(255, 0, 222, 0.3);
+    cursor: not-allowed;
+}
+
+/* 页脚样式 */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+        height: 56.25vh;
+    }
+    
+    .chat-container {
+        width: 90%;
+    }
+    
+    .message {
+        max-width: 85%;
+    }
+}
+
+/* 在文件末尾添加这些样式 */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.carousel-play-pause {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* 标题样式 */
+.page-header {
+    background: #ffffff;
+    padding: 20px 0 0 0;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
+
+.site-title {
+    color: #333;
+    font-size: 4.5em;
+    margin: 0;
+    font-family: 'Brush Script MT', cursive;
+    letter-spacing: 4px;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+    position: relative;
+    font-weight: bold;
+    padding: 20px 0;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px #ff00de;
+    text-shadow: 0 0 10px rgba(255, 0, 222, 0.5);
+}
+
+/* 修改发光动画效果 */
+@keyframes neonGlow {
+    0% {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #ff00de,
+            0 0 20px #ff00de,
+            0 0 30px #ff00de,
+            0 0 40px #ff00de,
+            0 0 42px #ff00de,
+            0 0 82px #ff00de;
+    }
+    100% {
+        text-shadow: 
+            0 0 2px #fff,
+            0 0 5px #00f7ff,
+            0 0 10px #00f7ff,
+            0 0 20px #00f7ff,
+            0 0 30px #00f7ff,
+            0 0 26px #00f7ff,
+            0 0 45px #00f7ff;
+    }
+}
+
+/* 添加悬停效果 */
+.site-title:hover {
+    animation: neonFlicker 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow: 
+            0 0 7px #333,
+            0 0 10px #333,
+            0 0 21px #333,
+            0 0 42px #ff00de,
+            0 0 82px #ff00de,
+            0 0 92px #ff00de,
+            0 0 102px #ff00de,
+            0 0 151px #ff00de;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* 添加左侧装饰 */
+.left-decoration {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+/* 添加右侧装饰 */
+.right-decoration {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+/* 装饰性图标样式 */
+.decoration-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 222, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 0, 222, 0.2);
+}
+
+.decoration-icon:hover {
+    transform: scale(1.1);
+    background: rgba(255, 0, 222, 0.2);
+    box-shadow: 0 0 20px rgba(255, 0, 222, 0.3);
+}
+
+/* 添加背景装饰 */
+.background-decoration {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.background-decoration::before,
+.background-decoration::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+.background-decoration::before {
+    left: -150px;
+    top: 20%;
+    background: rgba(255, 0, 222, 0.1);
+}
+
+.background-decoration::after {
+    right: -150px;
+    bottom: 20%;
+    background: rgba(0, 247, 255, 0.1);
+} 
